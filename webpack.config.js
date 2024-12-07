@@ -1,8 +1,20 @@
 import HtmlWebpackPlugin from 'html-webpack-plugin';
+import path, { dirname } from 'path';
+import { fileURLToPath } from 'url';
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
 
 export default {
   mode: process.env.NODE_ENV || 'development',
   entry: './src/index.js',
+  output: {
+    path: path.resolve(__dirname, 'dist'),
+  },
+  devServer: {
+    open: true,
+    host: 'localhost',
+  },
   module: {
     rules: [
       {
@@ -35,7 +47,7 @@ export default {
       template: 'index.html',
     }),
   ],
-  output: {
-    clean: true,
-  },
+  // output: {
+  //   clean: true,
+  // },
 };
