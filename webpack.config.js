@@ -9,7 +9,9 @@ export default {
   mode: process.env.NODE_ENV || 'development',
   entry: './src/index.js',
   output: {
+    filename: 'bundle.js',
     path: path.resolve(__dirname, 'dist'),
+    clean: true,
   },
   devServer: {
     open: true,
@@ -47,7 +49,4 @@ export default {
       template: 'index.html',
     }),
   ],
-  // output: {
-  //   clean: true,
-  // },
 };
